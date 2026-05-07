@@ -14,7 +14,7 @@
     "bot",
     "popebot"
   ],
-  "author": "",
+  "author": "personal fork",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^14.14.1",
@@ -28,5 +28,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "nodemonConfig": {
+    "delay": 500,
+    "ignore": ["*.test.js", "node_modules"]
   }
 }
