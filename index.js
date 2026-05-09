@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, ActivityType } = require('discord.js');
 const { handleMessage } = require('./src/messageHandler');
 
 // Initialize Discord client with required intents
@@ -15,7 +15,8 @@ const client = new Client({
 // Bot is ready
 client.once('ready', () => {
   console.log(`✅ ThePopeBot is online as ${client.user.tag}`);
-  client.user.setActivity('Blessing the chat', { type: 'WATCHING' });
+  // ActivityType.Watching is the correct way to set this in discord.js v14+
+  client.user.setActivity('Blessing the chat', { type: ActivityType.Watching });
 });
 
 // Handle incoming messages
