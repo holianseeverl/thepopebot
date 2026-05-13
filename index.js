@@ -28,7 +28,10 @@ client.on('messageCreate', async (message) => {
     await handleMessage(client, message);
   } catch (error) {
     console.error('Error handling message:', error);
-    message.reply('Something went wrong. Please try again.');
+    // avoid replying if the message was deleted before we could respond
+    if (message.channel) {
+      message.reply('Something went wrong. Please try again.').catch(() => {});
+    }
   }
 });
 
